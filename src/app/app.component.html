@@ -1,1 +1,4 @@
-add code here!!
+
+<app-header (onSelectActionEmiter)="handleAction($event)"></app-header>
+<app-table-folder [FilesItems]="files"></app-table-folder>
+<app-form (onNewItem)="handleNewItem($event)"></app-form>
