@@ -1,1 +1,6 @@
-<p>items-avatars works!</p>
+<div style="display: flex;flex-direction: row;">
+    @for (item of ItemsAvatars; track $index) {
+        <img src={{item.avatarUrl}} style="height: 32px;" alt="">
+        <button (click)="deleteAvatar(item.name)">x</button>
+    }
+</div>

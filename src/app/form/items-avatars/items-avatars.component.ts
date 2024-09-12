@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FileOwner } from '../../../models/file.item.model';
 
 @Component({
@@ -9,5 +9,10 @@ import { FileOwner } from '../../../models/file.item.model';
   styleUrl: './items-avatars.component.css'
 })
 export class ItemsAvatarsComponent {
+
   @Input() ItemsAvatars:FileOwner[]=[]
+  @Output() deleteItem = new EventEmitter<string>();
+  deleteAvatar(arg: string) {
+    this.deleteItem.emit(arg)
+  }
 }

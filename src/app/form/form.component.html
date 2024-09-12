@@ -26,7 +26,7 @@
         required
       />
     </div>
-    <app-items-avatars [ItemsAvatars]="oFileIten.owners"></app-items-avatars>
+    <app-items-avatars  (deleteItem)="deleteOwnerList($event)" [ItemsAvatars]="oFileIten.owners"></app-items-avatars>
     <select
       [(ngModel)]="oFileIten.type"
       class="form-control form-control-lg"
@@ -35,6 +35,16 @@
       <option value="FILE">File</option>
       <option value="FOLDER">folder</option>
     </select>
+    
+    <ul
+      class="form-control form-control-lg"
+      name="owners"
+    >
+    <h6>Dueños</h6>
+      @for (owners of listOwners; track $index) {
+        <li value={{owners.name}} (click)="addOwner(owners)"><img src={{owners.avatarUrl}}  style="height: 32px;" alt=""></li>
+      }
+    </ul>
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

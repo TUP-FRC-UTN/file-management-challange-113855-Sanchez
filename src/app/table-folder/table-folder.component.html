@@ -49,8 +49,20 @@
           />
           }
         </td>
+        <td>
+          @if(typeAction==="Eliminar"){
+          <input
+            type="checkbox"
+            (click)="onChecked(item.id, $event)"
+            [checked]="onValidChecked(item.id)"
+          />
+          }
+        </td>
       </tr>
       }
+      <button class="btn btn-danger" (click)="onDeleteItems()">
+        Eliminar items
+      </button>
     </tbody>
   </table>
 </div>
